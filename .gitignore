@@ -1,3 +1,8 @@
+.env
+.env.test
+/node_modules
+.idea
+
 # Cache and logs (Symfony2)
 /app/cache/*
 /app/logs/*
