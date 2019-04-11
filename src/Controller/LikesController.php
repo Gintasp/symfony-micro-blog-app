@@ -51,7 +51,7 @@ class LikesController extends AbstractController
             return new JsonResponse([], Response::HTTP_UNAUTHORIZED);
         }
 
-        $microPost->unlike($currentUser);
+        $microPost->getLikedBy()->removeElement($currentUser);
         $this->getDoctrine()->getManager()->flush();
 
         return new JsonResponse([
