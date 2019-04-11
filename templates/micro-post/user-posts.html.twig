@@ -9,11 +9,13 @@
                 </h5>
 
                 {% if user != app.user %}
-                    {% if app.user.following.contains(user) == false %}
-                        <a href="{{ path('following_follow', {'id': user.id}) }}"
-                           class="btn btn-outline-primary">Follow</a>
-                    {% else %}
-                        <a href="{{ path('following_unfollow', {'id': user.id}) }}" class="btn btn-outline-danger">Unfollow</a>
+                    {% if app.user %}
+                        {% if app.user.following.contains(user) == false %}
+                            <a href="{{ path('following_follow', {'id': user.id}) }}"
+                               class="btn btn-outline-primary">Follow</a>
+                        {% else %}
+                            <a href="{{ path('following_unfollow', {'id': user.id}) }}" class="btn btn-outline-danger">Unfollow</a>
+                        {% endif %}
                     {% endif %}
                 {% endif %}
             </div>
