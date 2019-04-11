@@ -50,7 +50,7 @@ class MicroPost
      * MicroPost constructor.
      * @param $likedBy
      */
-    public function __construct($likedBy)
+    public function __construct()
     {
         $this->likedBy = new ArrayCollection();
     }
