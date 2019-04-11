@@ -63,13 +63,22 @@ class MicroPost
         return $this->likedBy;
     }
 
-    public function like(User $userToLike)
+    public function unlike(User $user)
     {
-        if ($this->likedBy->contains($userToLike)) {
+        if (!$this->likedBy->contains($user)) {
             return;
         }
 
-        $this->likedBy->add($userToLike);
+        $this->likedBy->remove($user);
+    }
+
+    public function like(User $user)
+    {
+        if ($this->likedBy->contains($user)) {
+            return;
+        }
+
+        $this->likedBy->add($user);
     }
 
     /**
