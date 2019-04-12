@@ -29,4 +29,14 @@ class NotificationRepository extends ServiceEntityRepository
             ->setParameter('user', $user)
             ->getQuery()->getSingleScalarResult();
     }
+
+    public function markAllAsReadByUser(User $user)
+    {
+        $qb = $this->createQueryBuilder('n');
+        $qb->update('App\Entity\Notification', 'n')
+            ->set('n.seen', true)
+            ->where('n.user = :user')
+            ->setParameter('user', $user)
+            ->getQuery()->execute();
+    }
 }
