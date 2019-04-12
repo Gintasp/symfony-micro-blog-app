@@ -34,7 +34,7 @@ class NotificationController extends AbstractController
      */
     public function unreadCount()
     {
-        new JsonResponse([
+        return new JsonResponse([
                 'count' => $this->notificationRepository->findUnseenByUser($this->getUser())]
         );
     }
