@@ -14,22 +14,43 @@ class AppFixtures extends Fixture
         [
             'username' => 'john_doe',
             'email' => 'john_doe@doe.com',
-            'password' => 'john123',
+            'password' => 'password',
             'fullName' => 'John Doe',
             'roles' => [User::ROLE_USER]
         ],
         [
             'username' => 'rob_smith',
             'email' => 'rob_smith@smith.com',
-            'password' => 'rob12345',
+            'password' => 'password',
             'fullName' => 'Rob Smith',
             'roles' => [User::ROLE_USER]
         ],
         [
+            'username' => 'susan_doe',
+            'email' => 'susan@doe.com',
+            'password' => 'password',
+            'fullName' => 'Susan Doe',
+            'roles' => [User::ROLE_USER]
+        ],
+        [
+            'username' => 'tom_johnson',
+            'email' => 'tom.johnson@gmail.com',
+            'password' => 'password',
+            'fullName' => 'Tom Johnson',
+            'roles' => [User::ROLE_USER]
+        ],
+        [
+            'username' => 'mark_zuckerberg',
+            'email' => 'markz@facebook.com',
+            'password' => 'password',
+            'fullName' => 'Mark Zuckerberg',
+            'roles' => [User::ROLE_USER]
+        ],
+        [
             'username' => 'admin',
-            'email' => 'marry_gold@admin.com',
-            'password' => 'admin12345',
-            'fullName' => 'Marry Gold',
+            'email' => 'admin@admin.com',
+            'password' => 'adminpassword',
+            'fullName' => 'Admin',
             'roles' => [User::ROLE_ADMIN]
         ],
     ];
