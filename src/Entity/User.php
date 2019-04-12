@@ -5,8 +5,8 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Security\Core\User\AdvancedUserInterface;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -14,7 +14,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @UniqueEntity(fields="email", message="This email is already being used.")
  * @UniqueEntity(fields="username", message="This username is already being used.")
  */
-class User implements AdvancedUserInterface, \Serializable
+class User implements UserInterface, \Serializable
 {
     const ROLE_USER = 'ROLE_USER';
     const ROLE_ADMIN = 'ROLE_ADMIN';
@@ -310,26 +310,4 @@ class User implements AdvancedUserInterface, \Serializable
     {
         return $this->posts;
     }
-
-    public function isAccountNonExpired()
-    {
-        return true;
-    }
-
-    public function isAccountNonLocked()
-    {
-        return true;
-    }
-
-    public function isCredentialsNonExpired()
-    {
-        return true;
-    }
-
-    public function isEnabled()
-    {
-        return $this->enabled;
-    }
-
-
 }
