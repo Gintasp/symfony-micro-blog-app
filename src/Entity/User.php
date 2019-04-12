@@ -156,7 +156,8 @@ class User implements UserInterface, \Serializable
         return serialize([
             $this->id,
             $this->username,
-            $this->password
+            $this->password,
+            $this->enabled
         ]);
     }
 
@@ -205,7 +206,8 @@ class User implements UserInterface, \Serializable
     {
         list($this->id,
             $this->username,
-            $this->password) = unserialize($serialized);
+            $this->password,
+            $this->enabled) = unserialize($serialized);
     }
 
     public function getRoles()
