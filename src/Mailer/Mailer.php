@@ -35,7 +35,7 @@ class Mailer
 
     public function sendConfirmationEmail(User $user)
     {
-        $body = $this->environment->render('email/registration.html.twig', [
+        $body = $this->twig->render('email/registration.html.twig', [
             'user' => $user
         ]);
         $message = (new \Swift_Message())
