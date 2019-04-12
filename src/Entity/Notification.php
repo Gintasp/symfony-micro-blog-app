@@ -57,4 +57,28 @@ abstract class Notification
     {
         return $this->id;
     }
+
+    /**
+     * @param mixed $id
+     */
+    public function setId($id): void
+    {
+        $this->id = $id;
+    }
+
+    /**
+     * @param mixed $user
+     */
+    public function setUser($user): void
+    {
+        $this->user = $user;
+    }
+
+    /**
+     * @param mixed $seen
+     */
+    public function setSeen($seen): void
+    {
+        $this->seen = $seen;
+    }
 }
