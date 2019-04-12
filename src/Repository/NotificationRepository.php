@@ -26,6 +26,7 @@ class NotificationRepository extends ServiceEntityRepository
 
         return $qb->select('count(n)')
             ->where('n.user = :user')
+            ->andWhere('n.seen = 0')
             ->setParameter('user', $user)
             ->getQuery()->getSingleScalarResult();
     }
