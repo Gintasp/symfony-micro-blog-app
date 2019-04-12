@@ -50,7 +50,7 @@ class RegisterController extends AbstractController
             $userRegisteredEvent = new UserRegisterEvent($user);
             $dispatcher->dispatch(UserRegisterEvent::NAME, $userRegisteredEvent);
 
-            $this->redirect('micro_post_index');
+            return $this->redirectToRoute('micro_post_index');
         }
 
         return $this->render('register/register.html.twig', [
