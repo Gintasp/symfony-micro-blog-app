@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\LikeNotification;
+use App\Entity\User;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
@@ -19,32 +20,13 @@ class LikeNotificationRepository extends ServiceEntityRepository
         parent::__construct($registry, LikeNotification::class);
     }
 
-    // /**
-    //  * @return LikeNotification[] Returns an array of LikeNotification objects
-    //  */
-    /*
-    public function findByExampleField($value)
+    public function findUnseenByUser(User $user)
     {
-        return $this->createQueryBuilder('l')
-            ->andWhere('l.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('l.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
-    }
-    */
+        $qb = $this->createQueryBuilder('n');
 
-    /*
-    public function findOneBySomeField($value): ?LikeNotification
-    {
-        return $this->createQueryBuilder('l')
-            ->andWhere('l.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
+        return $qb->select('count(n)')
+            ->where('n.user = :user')
+            ->setParameter('user', $user)
+            ->getQuery()->getSingleScalarResult();
     }
-    */
 }
