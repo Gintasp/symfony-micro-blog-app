@@ -1,13 +1,6 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: gplon
- * Date: 2019-04-05
- * Time: 22:37
- */
 
 namespace App\Controller;
-
 
 use App\Entity\MicroPost;
 use App\Repository\UserRepository;
@@ -72,8 +65,8 @@ class SecurityController
             $manager->flush();
         }
 
-        return new Response('security/confirmation.html.twig', [
+        return new Response($this->twig->render('security/confirmation.html.twig', [
             'user' => $user
-        ]);
+        ]));
     }
 }
