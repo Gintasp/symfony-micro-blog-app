@@ -32,5 +32,10 @@ services:
     App\Mailer\Mailer:
         arguments:
             $mailFrom: '%email_from%'
+
+    Symfony\Component\HttpFoundation\Session\Storage\Hadnler\PdoSessionHandler:
+        arguments:
+            - !service {class: PDO, factory: 'database_connection:getWrapperConnection'}
+            - {lock_mode: 1}
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
