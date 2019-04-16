@@ -99,6 +99,28 @@ class User implements UserInterface, \Serializable
     private $enabled;
 
     /**
+     * @ORM\OneToOne(targetEntity="App\Entity\UserPreferences")
+     */
+    private $preferences;
+
+    /**
+     * @return UserPreferences|null
+     */
+    public function getPreferences()
+    {
+        return $this->preferences;
+    }
+
+    /**
+     * @param mixed $preferences
+     */
+    public function setPreferences($preferences): void
+    {
+        $this->preferences = $preferences;
+    }
+
+
+    /**
      * @return mixed
      */
     public function getConfirmationToken()
