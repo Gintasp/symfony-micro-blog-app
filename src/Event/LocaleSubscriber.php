@@ -14,7 +14,6 @@ class LocaleSubscriber implements EventSubscriberInterface
      */
     private $defaultLocale;
 
-
     /**
      * LocaleSubscriber constructor.
      * @param string $defaultLocale
